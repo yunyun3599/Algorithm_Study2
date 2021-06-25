@@ -30,9 +30,7 @@ public class _20920 {
 			});
 		// 정렬이 끝나면 순서대로 sb에 쌓고 출력
 		for (Entry<String, Integer> entry : entries) sb.append(entry.getKey()+"\n");
-		System.out.println();
 		System.out.println(sb.toString());
 
 	}
-
 }
