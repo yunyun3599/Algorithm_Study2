@@ -49,7 +49,7 @@ class Solution {
 				
 				//(1) 규칙2로만 이루어진경우
         			res = m2.group(1); 
-        			answer = m2.replaceAll(res+" "); //일단 answer의 매칭되는 부분을 대체
+        			answer = m2.replaceAll(res); //일단 answer의 매칭되는 부분을 대체
         		
 				//(2) 규칙2안에 규칙1이 중첩된 경우 -> 다시 rule1 적용할 수 있으므로 m1 matcher로 규칙1 찾기 
         			if(m1.find()) {	
