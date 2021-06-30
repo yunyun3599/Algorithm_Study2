@@ -16,10 +16,10 @@ class Solution {
 			Pattern lowcase = Pattern.compile("[a-z]"); //lowcase 하나 
 			Matcher matcher = lowcase.matcher(answer);
 			
-			if(!matcher.find(idx)) break;
+			if(!matcher.find(idx)) break; // 다 대문자로 이루어져있으면 탐색 끝이므로 break
 			
-			String dummy = matcher.group(); //찾은 소문자 
-			idx = answer.indexOf(dummy.charAt(0));
+			String dummy = matcher.group(); //찾은 소문자 = dummy
+			idx = answer.indexOf(dummy.charAt(0)); // dummy의 위치 
 			
 			Pattern rule1 = Pattern.compile("[A-Z]("+dummy+"[A-Z])+");
 			Pattern rule2 = Pattern.compile(dummy+"([A-Z]+|([A-Z]([a-z][A-Z])+))"+dummy);
@@ -34,7 +34,7 @@ class Solution {
 				break;
 			}
 			
-			//규칙1 찾기 (찾은 dummy는 rule1의 시작이 아니므로 idx-1부터 find) ex)AxAxA -> AAA
+			//규칙1 찾고, ex)AxAxA -> AAA로 만들어서 해당부분 replace
 			if(m1.find()) { 
 				String tmp = m1.group();
 				StringBuilder res = new StringBuilder("");
@@ -42,17 +42,16 @@ class Solution {
 					res.append(s);
 				}
 				answer = m1.replaceAll(res.toString()+" "); //answer의 매칭되는 부분을 대체
-				idx = answer.indexOf(res.toString()) + res.toString().length();
 			}
-			//규칙2 찾기 ex)bWORLDb -> WORLD
+			//규칙2 찾고, ex)bWORLDb -> WORLD로 만들어서 해당부분 replace
 			else if(m2.find(idx)) {	
 				String res = "";
 				
-				//규칙2로만 이루어진경우
-        			res = m2.group(1);	 
-        			answer = m2.replaceAll(res+" "); //answer의 매칭되는 부분을 대체
+				//(1) 규칙2로만 이루어진경우
+        			res = m2.group(1); 
+        			answer = m2.replaceAll(res+" "); //일단 answer의 매칭되는 부분을 대체
         		
-				//규칙2안에 규칙1이 중첩된 경우 
+				//(2) 규칙2안에 규칙1이 중첩된 경우 -> 다시 rule1 적용할 수 있으므로 m1 matcher로 규칙1 찾기 
         			if(m1.find()) {	
         				String tmp = m1.group(); 
         				String tmp_dummy = tmp.charAt(1)+"";
@@ -69,7 +68,7 @@ class Solution {
             			String tmp = m3.group();
             			int end = m3.end();
             			if(tmp.length() == sentence.length()) break;
-            			else if(Character.isLowerCase(answer.charAt(end))) { //바로뒤에 규칙일 경우 
+            			else if(Character.isLowerCase(answer.charAt(end))) { //바로뒤에 규칙 이어질 경우 
             				answer = m3.replaceAll(tmp+ " "); continue;
             			}
            		}
