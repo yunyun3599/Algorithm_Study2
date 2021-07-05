@@ -35,7 +35,7 @@ int main() {
 			if (min > abs(ph)) {
 				ans1 = left;
 				ans2 = right;
-				min = abs(ph);
+				min = abs(ph); 
 			}
 			right--;
 		}//더 작아져야함
