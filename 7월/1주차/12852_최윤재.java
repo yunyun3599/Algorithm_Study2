@@ -1,6 +1,6 @@
 package tmp;
-import java.io.*;
-public class _12852_ÃÖÀ±Àç_1·Î¸¸µé±â2 {
+import java.io.*; 
+public class _12852_ìµœìœ¤ì¬_1ë¡œë§Œë“¤ê¸°2 {
 
 	static int input;
 	static int dp[];
@@ -12,25 +12,25 @@ public class _12852_ÃÖÀ±Àç_1·Î¸¸µé±â2 {
 		
 		input = Integer.parseInt(br.readLine());
 		dp = new int[input+1];
-		history = new int[input+1];	//ÇÏ³ª»©¼­ ¸¸µé¾ú´ÂÁö 2·Î ³ª´² ¸¸µé¾ú´ÂÁö 3À¸·Î ³ª´² ¸¸µé¾ú´ÂÁö¸¦ 1,2,3°ªÀ¸·Î ÀúÀå
+		history = new int[input+1];	//í•˜ë‚˜ë¹¼ì„œ ë§Œë“¤ì—ˆëŠ”ì§€ 2ë¡œ ë‚˜ëˆ  ë§Œë“¤ì—ˆëŠ”ì§€ 3ìœ¼ë¡œ ë‚˜ëˆ  ë§Œë“¤ì—ˆëŠ”ì§€ë¥¼ 1,2,3ê°’ìœ¼ë¡œ ì €ì¥
 		
-		for(int i=2; i<input+1; i++) {	//dp °ª ±¸ÇÔ
-			int three = Integer.MAX_VALUE;	//3À¸·Î ³ª´« °ª
-			int two = Integer.MAX_VALUE;	//2·Î ³ª´« °ª
-			int one = dp[i-1]+1;	//1·Î »« °ªÀº dp[i-1]+1ÀÓ
-			if(i%3==0) three = dp[i/3] + 1;	//³ª´²Áö´Â °æ¿ì °ª Ã¤¿ì±â
-			if(i%2==0) two = dp[i/2] + 1;	//³ª´²Áö´Â °æ¿ì °ª Ãß°¡ÇÏ±â
-			dp[i] = Math.min(three, Math.min(two, one));	//°¡Àå ÀÛÀº °ª Ã£±â
-			if(i%3==0 && dp[i]-1 == dp[i/3]) history[i] = 3;	//¾î¶² °ªÀ¸·ÎºÎÅÍ °è»êÇß´ÂÁö ÀúÀå
+		for(int i=2; i<input+1; i++) {	//dp ê°’ êµ¬í•¨
+			int three = Integer.MAX_VALUE;	//3ìœ¼ë¡œ ë‚˜ëˆˆ ê°’
+			int two = Integer.MAX_VALUE;	//2ë¡œ ë‚˜ëˆˆ ê°’
+			int one = dp[i-1]+1;	//1ë¡œ ëº€ ê°’ì€ dp[i-1]+1ì„
+			if(i%3==0) three = dp[i/3] + 1;	//ë‚˜ëˆ ì§€ëŠ” ê²½ìš° ê°’ ì±„ìš°ê¸°
+			if(i%2==0) two = dp[i/2] + 1;	//ë‚˜ëˆ ì§€ëŠ” ê²½ìš° ê°’ ì¶”ê°€í•˜ê¸°
+			dp[i] = Math.min(three, Math.min(two, one));	//ê°€ì¥ ì‘ì€ ê°’ ì°¾ê¸°
+			if(i%3==0 && dp[i]-1 == dp[i/3]) history[i] = 3;	//ì–´ë–¤ ê°’ìœ¼ë¡œë¶€í„° ê³„ì‚°í–ˆëŠ”ì§€ ì €ì¥
 			else if(i%2 == 0 && dp[i]-1 == dp[i/2]) history[i] = 2;
 			else history[i] = 1;
 		}
 		
-		bw.write(dp[input]+"\n");	//°á°ú È½¼ö Ãâ·Â
-		while(input>0) {	//È÷½ºÅä¸® Ãâ·Â
+		bw.write(dp[input]+"\n");	//ê²°ê³¼ íšŸìˆ˜ ì¶œë ¥
+		while(input>0) {	//íˆìŠ¤í† ë¦¬ ì¶œë ¥
 			bw.write(input+" ");
-			if(history[input]==3 || history[input]==2) input /= history[input];	//2³ª 3À¸·Î ³ª´²Áö¸é ³ª´« °ªÀ¸·Î ÀÎµ¦½º°¡ ÁÙ¾îµê
-			else input--;	//ÇÏ³ª »©¼­ ¸¸µç °æ¿ì¸é ÀÎµ¦½º¸¦ 1 ÁÙÀÌ±â
+			if(history[input]==3 || history[input]==2) input /= history[input];	//2ë‚˜ 3ìœ¼ë¡œ ë‚˜ëˆ ì§€ë©´ ë‚˜ëˆˆ ê°’ìœ¼ë¡œ ì¸ë±ìŠ¤ê°€ ì¤„ì–´ë“¦
+			else input--;	//í•˜ë‚˜ ë¹¼ì„œ ë§Œë“  ê²½ìš°ë©´ ì¸ë±ìŠ¤ë¥¼ 1 ì¤„ì´ê¸°
 		}
 		bw.close();
 		br.close();
