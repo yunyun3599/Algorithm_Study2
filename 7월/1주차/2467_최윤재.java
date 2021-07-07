@@ -1,13 +1,13 @@
 package tmp;
 import java.util.*;
 import java.io.*;
-public class _2467_ÃÖÀ±Àç_¿ë¾× {
+public class _2467_ìµœìœ¤ì¬_ìš©ì•¡ {
 
-	static int num;	//¿ë¾× °³¼ö
-	static int solution[];	//¿ë¾× ÀúÀå
-	static int result = Integer.MAX_VALUE;	//0¿¡ °¡Àå °¡±î¿î °ª
-	static int answer1;	//´õ ¼ö°¡ ÀÛÀº ¿ë¾×
-	static int answer2;	//´õ ¼ö°¡ Å« ¿ë¾×
+	static int num;	//ìš©ì•¡ ê°œìˆ˜
+	static int solution[];	//ìš©ì•¡ ì €ì¥
+	static int result = Integer.MAX_VALUE;	//0ì— ê°€ì¥ ê°€ê¹Œìš´ ê°’
+	static int answer1;	//ë” ìˆ˜ê°€ ì‘ì€ ìš©ì•¡
+	static int answer2;	//ë” ìˆ˜ê°€ í° ìš©ì•¡
 	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -16,22 +16,22 @@ public class _2467_ÃÖÀ±Àç_¿ë¾× {
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		
 		for(int i=0; i<num; i++) solution[i] = Integer.parseInt(st.nextToken());
-		////////////////////////////ÀÔ·Â
-		Arrays.sort(solution);	//¿À¸§Â÷¼ø Á¤·Ä
+		////////////////////////////ì…ë ¥
+		Arrays.sort(solution);	//ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬
 		
-		int left = 0;	//¿ŞÂÊ ÀÎµ¦½º
-		int right = num-1;	//¿À¸¥ÂÊ ÀÎµ¦½º
+		int left = 0;	//ì™¼ìª½ ì¸ë±ìŠ¤
+		int right = num-1;	//ì˜¤ë¥¸ìª½ ì¸ë±ìŠ¤
 		
 		while(left<right) {
-			if(Math.abs(solution[left]+solution[right]) < result) {	//ÇöÀç resultº¸´Ù 0¿¡ ´õ °¡±î¿ì¸é ¾÷µ¥ÀÌÆ®
+			if(Math.abs(solution[left]+solution[right]) < result) {	//í˜„ì¬ resultë³´ë‹¤ 0ì— ë” ê°€ê¹Œìš°ë©´ ì—…ë°ì´íŠ¸
 				result = Math.abs(solution[left]+solution[right]);
 				answer1 = solution[left];
 				answer2 = solution[right];
 			}
-			if(solution[left]+solution[right]<0) left++;	//ÇÕÇÑ °ªÀÌ 0º¸´Ù ÀÛÀ¸¸é À½¼ö ºÎºĞ ++
-			else right--;	//ÇÕÇÑ °ªÀÌ 0º¸´Ù Å©¸é ¾ç¼ö ºÎºĞ--
+			if(solution[left]+solution[right]<0) left++;	//í•©í•œ ê°’ì´ 0ë³´ë‹¤ ì‘ìœ¼ë©´ ìŒìˆ˜ ë¶€ë¶„ ++
+			else right--;	//í•©í•œ ê°’ì´ 0ë³´ë‹¤ í¬ë©´ ì–‘ìˆ˜ ë¶€ë¶„--
 		}
 		System.out.println(answer1 + " " + answer2);
-	}
-
+	} 
+ 
 }
