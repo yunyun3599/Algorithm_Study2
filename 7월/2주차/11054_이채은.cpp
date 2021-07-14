@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int N, ans3 = 0;
+int N, ans = 0;
 int arr[1000], inc[1000] = { 0, }, dec[1000] = { 0, };
 
 int main() {
@@ -25,8 +25,9 @@ int main() {
         } 
         dec[i] = tmp + 1;
     }
+    
     for (int i = 0; i < N; i++)
-        ans3 = (ans3 > inc[i] + dec[i]) ? ans3 : inc[i] + dec[i];
+        ans = (ans > inc[i] + dec[i]) ? ans : inc[i] + dec[i];
 
-    printf("%d", ans3 - 1);
+    printf("%d", ans - 1);
 }
