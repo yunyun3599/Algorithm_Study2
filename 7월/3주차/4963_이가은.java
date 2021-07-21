@@ -6,7 +6,7 @@ public class Main {
 	static int w,h;
 	static int[][] map;
 	static boolean[][] visit;
-	static int[] dx = {0,0,1,-1,-1,1,-1,1};
+	static int[] dx = {0,0,1,-1,-1,1,-1,1}; //상하좌우, 대각선
 	static int[] dy = {-1,1,0,0,-1,1,1,-1};
 
 	public static void main(String[] args) throws IOException{
@@ -28,7 +28,7 @@ public class Main {
 					map[i][j] = Integer.parseInt(st.nextToken());
 				}
 			}
-			int cnt = 0;
+			int cnt = 0; //섬의 개수 세기 
 			for(int i=0; i<h; i++) {
 				for(int j=0; j<w; j++) {
 					if(!visit[i][j] && map[i][j] == 1) {
