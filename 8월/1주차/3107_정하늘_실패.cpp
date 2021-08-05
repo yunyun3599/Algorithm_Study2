@@ -60,7 +60,7 @@ int main(){
 					}
 					continue;
 				}
-				else if (t < 4) {
+				else if (t <= 4) {
 					if (i != 0) ans += ':';
 					while (t != 4) {
 						ans += '0';
