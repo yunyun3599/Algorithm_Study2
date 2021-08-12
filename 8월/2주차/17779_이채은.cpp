@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 int N, ans = 500000;
 int map[21][21];
