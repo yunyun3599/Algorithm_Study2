@@ -1,7 +1,7 @@
 import java.util.*;
 import java.awt.Point;
 
-public class _2551_물통 {
+public class _2251_물통 {
 	
 	static Queue<Point> q = new LinkedList<>();
 	static boolean[][] visit = new boolean[201][201];
