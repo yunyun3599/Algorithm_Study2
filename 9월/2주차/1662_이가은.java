@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.Stack;
 
-public class _1662_문자열압축 {
+public class _1662_압축 {
 	
 	static char[] s;
 	static int[] close;
