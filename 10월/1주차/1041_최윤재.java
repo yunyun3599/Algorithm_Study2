@@ -42,7 +42,7 @@ public class _1041_최윤재_주사위 {
 		min3 = Math.min(min3, dice[2]+dice[4]+dice[5]);
 		min3 = Math.min(min3, dice[3]+dice[4]+dice[5]);
 		min5 = sum - max;	//5면이 보이는 경우의 최솟값 
-		calc();	//결과 계산 
+		calc();		//결과 계산 
 	}
 	public static void calc() {
 		if(N==1) {	//N이 1이면 5면 보이는 경우 1번 
