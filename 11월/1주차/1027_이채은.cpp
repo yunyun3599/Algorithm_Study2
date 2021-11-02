@@ -20,7 +20,7 @@ void calc(int num) {
 int main() {
     scanf("%d", &N);
     for (int i = 1; i <= N; i++) scanf("%lld", &h[i]);
-    for (int i = 1; i < N; i++) {
+    for (int i = 1; i <= N; i++) {
         calc(i);
         if (ans[i] > max) max = ans[i];
     }
