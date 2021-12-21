@@ -18,7 +18,7 @@ int main() {
 	bool isPalindrome = true;
 	bool isSameChar = true;
 
-	for (int i = 0; i < len / 2; i++) {
+	for (int i = 0; i <= len / 2; i++) {
 		if (str[i] != firstChar || str[len - 1 - i] != firstChar) isSameChar = false;
 		if (str[i] != str[len - 1 - i]) {
 			isPalindrome = false;
